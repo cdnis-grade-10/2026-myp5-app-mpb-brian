@@ -31,6 +31,8 @@ class ViewControllerTwo: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet var collectionView: UICollectionView!
+    
     
     
     // MARK: - Variables and Constants
@@ -42,7 +44,35 @@ class ViewControllerTwo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
 
 }
+
+extension ViewControllerTwo: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: <#T##Bool#>)
+    }
+    
+    }
+
+extension ViewControllerTwo: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
+   
+        cell.configure(with: UIImage(named:"profileImage")!)
+        return cell
+    }
+    
+}
+
+//extension ViewControllerTwo: UICollectionViewDelegateFlowLayout{}
