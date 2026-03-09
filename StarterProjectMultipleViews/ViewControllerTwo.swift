@@ -31,10 +31,10 @@ class ViewControllerTwo: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
-    
+
     // MARK: - Variables and Constants
     
     
@@ -45,8 +45,11 @@ class ViewControllerTwo: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 150, height: 150)
+        collectionView.collectionViewLayout = layout
         
-        collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
+        collectionView.register(MyCollectionViewCell.nib(),forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -56,7 +59,9 @@ class ViewControllerTwo: UIViewController {
 
 extension ViewControllerTwo: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: <#T##Bool#>)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        print("works")
+        
     }
     
     }
@@ -74,5 +79,9 @@ extension ViewControllerTwo: UICollectionViewDataSource {
     }
     
 }
-
-//extension ViewControllerTwo: UICollectionViewDelegateFlowLayout{}
+extension ViewControllerTwo: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 150)
+    }
+    
+}
