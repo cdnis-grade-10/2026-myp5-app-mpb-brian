@@ -10,28 +10,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="StarterProjectMultipleViews" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-cl-WRv">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsx-HC-H2S">
+                        <rect key="frame" x="167" y="20" width="189" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Role" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJc-5a-2uI">
+                        <rect key="frame" x="167" y="88" width="217" height="54"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="GcV-cl-WRv" secondAttribute="trailing" id="PV9-FD-xs4"/>
+                <constraint firstAttribute="trailing" secondItem="GcV-cl-WRv" secondAttribute="trailing" constant="243" id="PV9-FD-xs4"/>
                 <constraint firstItem="GcV-cl-WRv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ypd-Bo-xJa"/>
                 <constraint firstItem="GcV-cl-WRv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Zm2-hs-cHH"/>
                 <constraint firstAttribute="bottom" secondItem="GcV-cl-WRv" secondAttribute="bottom" id="m2j-hx-CDI"/>
+                <constraint firstItem="GcV-cl-WRv" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="mV3-ae-svY"/>
             </constraints>
+            <size key="customSize" width="369" height="76"/>
             <connections>
                 <outlet property="imageView" destination="GcV-cl-WRv" id="vyn-k6-AwX"/>
+                <outlet property="nameLabel" destination="lsx-HC-H2S" id="Scm-F8-6Gu"/>
+                <outlet property="roleLabel" destination="gJc-5a-2uI" id="REv-b5-1jg"/>
             </connections>
-            <point key="canvasLocation" x="9" y="125"/>
+            <point key="canvasLocation" x="249.61832061068702" y="115.49295774647888"/>
         </collectionViewCell>
     </objects>
 </document>

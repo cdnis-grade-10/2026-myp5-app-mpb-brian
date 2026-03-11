@@ -34,7 +34,7 @@ class ViewControllerTwo: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-
+    
     // MARK: - Variables and Constants
     
     
@@ -46,16 +46,23 @@ class ViewControllerTwo: UIViewController {
         // Do any additional setup after loading the view.
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.scrollDirection = .horizontal  // Key change!
+        layout.minimumLineSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.collectionViewLayout = layout
         
         collectionView.register(MyCollectionViewCell.nib(),forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
-
+    
 }
+
+let profiles = [
+    Teacher(teacherName: "Saeed Rahman", teacherRole: "Head of Design Technology & Computer Science",),
+    
+]
 
 extension ViewControllerTwo: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -68,20 +75,27 @@ extension ViewControllerTwo: UICollectionViewDelegate{
 
 extension ViewControllerTwo: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return profiles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let profile = profiles[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
    
-        cell.configure(with: UIImage(named:"profileImage")!)
+        cell.configure(with: UIImage(named:"profileImage")!, name: profile.teacherName, role: profile.teacherRole)
         return cell
     }
     
 }
 extension ViewControllerTwo: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+    func collectionView(_ collectionView: UICollectionView,
+                       layout collectionViewLayout: UICollectionViewLayout,
+                       sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth: CGFloat = 280
+        let cellHeight: CGFloat = 200
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
 }

@@ -10,6 +10,9 @@ import UIKit
 class MyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var roleLabel: UILabel!
+    
     
     static let identifier = "MyCollectionViewCell"
 
@@ -18,8 +21,10 @@ class MyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func configure(with image: UIImage) {
+    public func configure(with image: UIImage, name: String, role: String) {
         imageView.image = image
+        nameLabel.text = name
+        roleLabel.text = role
     }
     
     static func nib() -> UINib{
