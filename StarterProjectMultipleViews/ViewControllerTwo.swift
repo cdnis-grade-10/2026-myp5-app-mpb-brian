@@ -43,12 +43,13 @@ class ViewControllerTwo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal  // Key change!
-        layout.minimumLineSpacing = 16
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.scrollDirection = .vertical // Change to vertical
+        layout.minimumInteritemSpacing = 10 // Horizontal space between cells
+        layout.minimumLineSpacing = 10      // Vertical space between rows
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
         collectionView.collectionViewLayout = layout
         
         collectionView.register(MyCollectionViewCell.nib(),forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
@@ -59,10 +60,6 @@ class ViewControllerTwo: UIViewController {
     
 }
 
-let profiles = [
-    Teacher(teacherName: "Saeed Rahman", teacherRole: "Head of Design Technology & Computer Science",),
-    
-]
 
 extension ViewControllerTwo: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -75,27 +72,30 @@ extension ViewControllerTwo: UICollectionViewDelegate{
 
 extension ViewControllerTwo: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return profiles.count
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let profile = profiles[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-   
-        cell.configure(with: UIImage(named:"profileImage")!, name: profile.teacherName, role: profile.teacherRole)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCollectionViewCell
+        
+        let department = ["english", "maths", "science", "music", "pe", "chinese"]
+        
+        cell.configure(with: UIImage(named:department))
         return cell
     }
     
 }
-extension ViewControllerTwo: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth: CGFloat = 280
-        let cellHeight: CGFloat = 200
+extension ViewControllerTwo: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: cellWidth, height: cellHeight)
+        let padding: CGFloat = 40 // (inset left and right by 15 + space between cells 10)
+        let collectionViewSize = collectionView.frame.size.width - padding
+        
+        let width = collectionViewSize / 2
+        
+
+        // For a square look, use width. For a card look, use width * 1.2
+        return CGSize(width: width, height: width * 1.3)
     }
-    
 }

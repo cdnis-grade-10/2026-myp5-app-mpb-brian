@@ -10,10 +10,8 @@ import UIKit
 class MyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var roleLabel: UILabel!
-    
-    
+
+
     static let identifier = "MyCollectionViewCell"
 
     override func awakeFromNib() {
@@ -21,10 +19,8 @@ class MyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func configure(with image: UIImage, name: String, role: String) {
+    public func configure(with image: UIImage,) {
         imageView.image = image
-        nameLabel.text = name
-        roleLabel.text = role
     }
     
     static func nib() -> UINib{
