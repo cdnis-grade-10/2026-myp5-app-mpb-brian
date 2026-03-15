@@ -27,20 +27,51 @@
 
 import UIKit
 
-class ViewControllerThree: UIViewController {
+class ViewControllerThree: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - Variables and Constants
+    
+    var selectedDepartment: Department?
     
     
     
     // MARK: - IBActions and Functions
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+        return selectedDepartment?.departmentTeacher.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+            
+            if let teacher = selectedDepartment?.departmentTeacher[indexPath.row] {
+                
+                cell.nameLabel.text = teacher.teacherName
+                cell.roleLabel.text = teacher.teacherRole
+                cell.iconImageView.image = UIImage(named: "profileImage")
+            }
+            return cell
+        }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
+        if let deptName = selectedDepartment?.departmentName {
+            self.title = "\(deptName) Teachers"
+        }
+        
+       
 
         // Do any additional setup after loading the view.
     }

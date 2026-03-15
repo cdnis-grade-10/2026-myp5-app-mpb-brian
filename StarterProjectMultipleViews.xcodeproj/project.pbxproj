@@ -17,6 +17,7 @@
 		CBFB16B82F5DD3D2006167B1 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFB16B72F5DD3D2006167B1 /* MyCollectionViewCell.xib */; };
 		CBFB16B92F5DD3D2006167B1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16B62F5DD3D2006167B1 /* MyCollectionViewCell.swift */; };
 		CBFB16BB2F61290A006167B1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16BA2F61290A006167B1 /* Data.swift */; };
+		CBFB16BD2F66CC4C006167B1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CBFB16B62F5DD3D2006167B1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBFB16B72F5DD3D2006167B1 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		CBFB16BA2F61290A006167B1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				CBFB16BA2F61290A006167B1 /* Data.swift */,
 				121E32862817B5A200DC59D4 /* TableView.swift */,
 				120E289C27DAFAF4000129B5 /* Main.storyboard */,
+				CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */,
 				120E289F27DAFAF6000129B5 /* Assets.xcassets */,
 				120E28A127DAFAF6000129B5 /* LaunchScreen.storyboard */,
 				120E28A427DAFAF6000129B5 /* Info.plist */,
@@ -154,6 +157,7 @@
 				CBFB16BB2F61290A006167B1 /* Data.swift in Sources */,
 				120E28AB27DAFE95000129B5 /* CollectionView.swift in Sources */,
 				CBFB16B92F5DD3D2006167B1 /* MyCollectionViewCell.swift in Sources */,
+				CBFB16BD2F66CC4C006167B1 /* CustomTableViewCell.swift in Sources */,
 				121E32872817B5A200DC59D4 /* TableView.swift in Sources */,
 				120E289727DAFAF4000129B5 /* AppDelegate.swift in Sources */,
 				120E289927DAFAF4000129B5 /* SceneDelegate.swift in Sources */,
