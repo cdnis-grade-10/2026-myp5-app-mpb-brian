@@ -9,6 +9,14 @@
 
 import Foundation
 
+
+struct Department{
+    let departmentIcon: String
+    let departmentName: String
+    let departmentTeacher: [Teacher]
+}
+
+
 struct Teacher {
     var teacherName: String
     var teacherContact: String
@@ -20,12 +28,4 @@ struct Teacher {
     var teacherSkills: String
     var teacherExperiences: String
     var isUpperSchoolTeacher: Bool
-
-
-}
-
-struct Department{
-    let departmentIcon: String
-    let departmentName: String
-    let departmentTeacher: [Teacher]
 }
