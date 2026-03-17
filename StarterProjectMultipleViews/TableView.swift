@@ -59,6 +59,17 @@ class ViewControllerThree: UIViewController, UITableViewDataSource, UITableViewD
             return cell
         }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let selectedTeacher = selectedDepartment?.departmentTeacher[indexPath.row] else{ return}
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "IndividualTeacherViewController") as? IndividualTeacherViewController {
+            
+            detailVC.selectedTeacher = selectedTeacher
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +78,8 @@ class ViewControllerThree: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate = self
         
         
-        if let deptName = selectedDepartment?.departmentName {
-            self.title = "\(deptName) Teachers"
+        if let departmentName = selectedDepartment?.departmentName {
+            self.title = "\(departmentName) Teachers"
         }
         
        

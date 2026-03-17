@@ -23,7 +23,7 @@ struct Teacher {
     var teacherRole: String
     var teacherProfileURL: String
     var teacherBackgroundURL: String
-    var teahcerStory: String
+    var teacherStory: String
     var teacherInterest: String
     var teacherSkills: String
     var teacherExperiences: String
