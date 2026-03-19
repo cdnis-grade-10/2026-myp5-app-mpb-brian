@@ -9,6 +9,7 @@ import UIKit
 
 class IndividualTeacherViewController: UIViewController {
 
+    @IBOutlet weak var teacherBackground: UIImageView!
     @IBOutlet weak var teacherProfile: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
@@ -32,7 +33,11 @@ class IndividualTeacherViewController: UIViewController {
             experiencesLabel.text = selectedTeacher?.teacherExperiences
             storyLabel.text = selectedTeacher?.teacherStory
             
+            //defaults for place holder
             teacherProfile.image = UIImage(named: "profileImage")
+            teacherBackground.image = UIImage(named: "backgroundImage")
+            
+            //consistant with prev VC
             teacherProfile.layer.cornerRadius = teacherProfile.frame.size.height / 2
             
         }
