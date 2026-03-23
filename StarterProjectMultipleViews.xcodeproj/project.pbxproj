@@ -19,6 +19,7 @@
 		CBFB16BB2F61290A006167B1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16BA2F61290A006167B1 /* Data.swift */; };
 		CBFB16BD2F66CC4C006167B1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */; };
 		CBFB16BF2F690E1D006167B1 /* IndividualTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16BE2F690E1D006167B1 /* IndividualTeacherViewController.swift */; };
+		CBFB16C12F7189E5006167B1 /* EditTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFB16C02F7189E5006167B1 /* EditTeacherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CBFB16BA2F61290A006167B1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		CBFB16BE2F690E1D006167B1 /* IndividualTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTeacherViewController.swift; sourceTree = "<group>"; };
+		CBFB16C02F7189E5006167B1 /* EditTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeacherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				CBFB16BA2F61290A006167B1 /* Data.swift */,
 				121E32862817B5A200DC59D4 /* TableView.swift */,
 				120E289C27DAFAF4000129B5 /* Main.storyboard */,
+				CBFB16C02F7189E5006167B1 /* EditTeacherViewController.swift */,
 				CBFB16BE2F690E1D006167B1 /* IndividualTeacherViewController.swift */,
 				CBFB16BC2F66CC4C006167B1 /* CustomTableViewCell.swift */,
 				120E289F27DAFAF6000129B5 /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 				121E32872817B5A200DC59D4 /* TableView.swift in Sources */,
 				120E289727DAFAF4000129B5 /* AppDelegate.swift in Sources */,
 				120E289927DAFAF4000129B5 /* SceneDelegate.swift in Sources */,
+				CBFB16C12F7189E5006167B1 /* EditTeacherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

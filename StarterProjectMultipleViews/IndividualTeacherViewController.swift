@@ -19,6 +19,28 @@ class IndividualTeacherViewController: UIViewController {
     @IBOutlet weak var experiencesLabel: UILabel!
     @IBOutlet weak var storyLabel: UILabel!
     
+    @IBAction func editButton(_ sender: UIButton) {
+        let verification = UIAlertController(title: "Enter Password", message: nil, preferredStyle: .alert)
+        verification.addTextField{ field in
+            field.placeholder = "Password"
+            field.isSecureTextEntry = true
+        }
+        
+        let confirm = UIAlertAction(title: "Confirm", style: .default){ _ in
+            if verification.textFields?.first?.text == "1991"{
+                self.performSegue(withIdentifier: "toEditProfile", sender: self)
+            } else{
+                print("oops, incorrect")
+            }
+        }
+        
+        verification.addAction(confirm)
+        verification.addAction(UIAlertAction(title: "cancel", style: .cancel))
+        
+        present(verification, animated: true)
+    }
+    
+    
     var selectedTeacher: Teacher?
     
     override func viewDidLoad() {
