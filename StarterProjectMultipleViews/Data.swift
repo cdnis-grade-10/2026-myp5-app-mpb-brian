@@ -9,14 +9,15 @@
 
 import Foundation
 
-
+//struct for each department
+//Teacher is a struct, thus this struct holds a sub-struct
 struct Department{
     let departmentIcon: String
     let departmentName: String
     let departmentTeacher: [Teacher]
 }
 
-
+//struct for teachers
 struct Teacher {
     var teacherName: String
     var teacherContact: String
@@ -28,4 +29,5 @@ struct Teacher {
     var teacherSkills: String
     var teacherExperiences: String
     var isUpperSchoolTeacher: Bool
+    var teacherPassword: String
 }

@@ -44,23 +44,28 @@ class ViewControllerTwo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //defines layout of the collection view
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical // Allows vertical scroll
+        layout.scrollDirection = .vertical  // Allows vertical scroll
         layout.minimumInteritemSpacing = 10 // Space between cells
-        layout.minimumLineSpacing = 10 // Space between rows
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //space inset from frame
+        layout.minimumLineSpacing = 10      // Space between rows
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)                                       //space inset from iPhone frame
         
+        //assigns the custom layout above to the collection view
         collectionView.collectionViewLayout = layout
     
+        /** .register tells the cell what to display, in this case as the reuse identifier is set as "MyCollectionViewCell" it would apply the MyCollectionViewCell swift file and the XIB file for the customized cell**/
         collectionView.register(MyCollectionViewCell.nib(),forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         
+        //use content from "self" when the cell is clicked on
         collectionView.delegate = self
+        //content of cells to display come from here
         collectionView.dataSource = self
-        //data of cells come from here
     }
     
 }
 // variable to hold BIG BIG ARRAY (AI generated sample data)
+//constant to hold the array of the struct created in the Data swift file
 let schoolDepartments: [Department] = [
         // 1. English
         Department(departmentIcon: "english", departmentName: "English", departmentTeacher: [
@@ -73,7 +78,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Modern Literature, Debate",
                     teacherSkills: "Skills: Curriculum Design, Public Speaking",
                     teacherExperiences: "Experience: 12 years in International Baccalaureate (IB) English",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Alice123"),
             Teacher(teacherName: "Sarah Jenkins",
                     teacherContact: "sarahjenkins@cdnis.edu.hk",
                     teacherRole: "Middle School Language Arts",
@@ -83,7 +89,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Creative Writing, Journalism",
                     teacherSkills: "Skills: Editing, Media Literacy",
                     teacherExperiences: "Experience: 5 years teaching Middle School English in the UK",
-                    isUpperSchoolTeacher: false),
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Sarah456"),
             Teacher(teacherName: "David O'Connor",
                     teacherContact: "davidoconnor@cdnis.edu.hk",
                     teacherRole: "AP/IB English Literature",
@@ -93,7 +100,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Theater, Shakespeare, Philosophy",
                     teacherSkills: "Skills: Directing, Advanced Essay Structuring",
                     teacherExperiences: "Experience: 15 years teaching AP/IB Literature",
-                    isUpperSchoolTeacher: true)
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "David789")
         ]),
 
         // 2. Chinese
@@ -107,7 +115,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Calligraphy, Traditional Tea Ceremonies",
                     teacherSkills: "Skills: Bilingual Education, HSK Coaching",
                     teacherExperiences: "Experience: Previously taught at Beijing International School",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Li001"),
             Teacher(teacherName: "Wei Fang",
                     teacherContact: "weifang@cdnis.edu.hk",
                     teacherRole: "Lower School Mandarin Teacher",
@@ -117,7 +126,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Puppetry, Children's Literature",
                     teacherSkills: "Skills: Early Childhood Education, Gamified Learning",
                     teacherExperiences: "Experience: 7 years in Early Years bilingual education",
-                    isUpperSchoolTeacher: false),
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Wei002"),
             Teacher(teacherName: "Kevin Zhang",
                     teacherContact: "kevinzhang@cdnis.edu.hk",
                     teacherRole: "IB Chinese Literature",
@@ -127,7 +137,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Modern Chinese History, Tech Translation",
                     teacherSkills: "Skills: Advanced Literary Analysis, Translation",
                     teacherExperiences: "Experience: 10 years teaching native and near-native IB Chinese",
-                    isUpperSchoolTeacher: true)
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Kevin003")
         ]),
 
         // 3. Maths
@@ -141,7 +152,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Data Science, Chess",
                     teacherSkills: "Skills: Complex Calculus, Python Programming",
                     teacherExperiences: "Experience: 8 years at CDNIS",
-                    isUpperSchoolTeacher: false),
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Chris999"),
             Teacher(teacherName: "Anita Desai",
                     teacherContact: "anitadesai@cdnis.edu.hk",
                     teacherRole: "Upper School Calculus & Stats",
@@ -151,7 +163,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Statistical Modeling, Sudoku",
                     teacherSkills: "Skills: AP Calculus, Financial Literacy",
                     teacherExperiences: "Experience: 14 years teaching high school mathematics",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Anita888"),
             Teacher(teacherName: "Marcus Thorne",
                     teacherContact: "marcusthorne@cdnis.edu.hk",
                     teacherRole: "Middle School Mathematics",
@@ -161,7 +174,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Architecture, Economics",
                     teacherSkills: "Skills: Project-Based Learning, Geometry",
                     teacherExperiences: "Experience: 6 years specializing in Middle Years Programme (MYP)",
-                    isUpperSchoolTeacher: false)
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Marcus777")
         ]),
 
         // 4. Science
@@ -175,7 +189,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Marine Biology, Scuba Diving",
                     teacherSkills: "Skills: Laboratory Safety, Scientific Writing",
                     teacherExperiences: "Experience: Published researcher with 10 years of classroom experience",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Elena101"),
             Teacher(teacherName: "Dr. James Carter",
                     teacherContact: "jamescarter@cdnis.edu.hk",
                     teacherRole: "Upper School Physics Teacher",
@@ -185,7 +200,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Astrophysics, Robotics",
                     teacherSkills: "Skills: Engineering Design, Applied Physics",
                     teacherExperiences: "Experience: Former Aerospace Engineer, 8 years teaching",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "James202"),
             Teacher(teacherName: "Chloe Evans",
                     teacherContact: "chloeevans@cdnis.edu.hk",
                     teacherRole: "Lower School General Science",
@@ -195,7 +211,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Botany, Ecology",
                     teacherSkills: "Skills: Interactive Experiments, STEM Advocacy",
                     teacherExperiences: "Experience: 9 years in primary science education",
-                    isUpperSchoolTeacher: false)
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Chloe303")
         ]),
 
         // 5. Music
@@ -209,7 +226,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Jazz Improv, Music Technology",
                     teacherSkills: "Skills: Piano, Violin, Orchestral Conducting",
                     teacherExperiences: "Experience: Former member of the Toronto Symphony Orchestra",
-                    isUpperSchoolTeacher: false),
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Julian111"),
             Teacher(teacherName: "Maria Gonzalez",
                     teacherContact: "mariagonzalez@cdnis.edu.hk",
                     teacherRole: "Choral Director & Vocal Coach",
@@ -219,7 +237,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Acapella Arranging, Musical Theater",
                     teacherSkills: "Skills: Vocal Pedagogy, Choir Conducting",
                     teacherExperiences: "Experience: 12 years as a professional vocal coach and director",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Maria222"),
             Teacher(teacherName: "Samir Patel",
                     teacherContact: "samirpatel@cdnis.edu.hk",
                     teacherRole: "Upper School Band Director",
@@ -229,7 +248,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Music Production, Percussion",
                     teacherSkills: "Skills: Audio Engineering, Band Management",
                     teacherExperiences: "Experience: 10 years in music education and studio recording",
-                    isUpperSchoolTeacher: true)
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Samir333")
         ]),
 
         // 6. PE
@@ -243,7 +263,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Triathlons, Nutrition Coaching",
                     teacherSkills: "Skills: First Aid, Strength & Conditioning",
                     teacherExperiences: "Experience: Coached state-winning varsity teams in Canada",
-                    isUpperSchoolTeacher: true),
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Jordan123"),
             Teacher(teacherName: "Jessica Lin",
                     teacherContact: "jessicalin@cdnis.edu.hk",
                     teacherRole: "Lower School PE & Dance",
@@ -253,7 +274,8 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Choreography, Yoga",
                     teacherSkills: "Skills: Gymnastics Coaching, Motor Skill Development",
                     teacherExperiences: "Experience: Former professional dancer, 6 years teaching PE",
-                    isUpperSchoolTeacher: false),
+                    isUpperSchoolTeacher: false,
+                    teacherPassword: "Jessica456"),
             Teacher(teacherName: "Tomoko Sato",
                     teacherContact: "tomokosato@cdnis.edu.hk",
                     teacherRole: "Upper School PE & Swim Coach",
@@ -263,56 +285,58 @@ let schoolDepartments: [Department] = [
                     teacherInterest: "Interest: Competitive Swimming, Sports Psychology",
                     teacherSkills: "Skills: Lifeguard Certification, Kinesiology",
                     teacherExperiences: "Experience: National level swimmer, 8 years coaching aquatics",
-                    isUpperSchoolTeacher: true)
+                    isUpperSchoolTeacher: true,
+                    teacherPassword: "Tomoko789")
         ])
     ]
 
 extension ViewControllerTwo: UICollectionViewDelegate {
+   //indexPath locates which cell was clicked when the collection view is being interacted by the user
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
+    //indexPath.item identifies the exact cell that was clicked and carries that as the "chosenDepartment" which carries to the upcoming table view controller
         let chosenDepartment = schoolDepartments[indexPath.item]
         
+        //looks through the whole project for the view controller with identifier VC3
+        //as?(casting) tells the code to treat this view controller with a unqiue identity
         if let tableVC = storyboard?.instantiateViewController(withIdentifier: "ViewControllerThree") as? ViewControllerThree {
-        
+        //projects the chosen department and data onto the tableVC through above sequence
             tableVC.selectedDepartment = chosenDepartment
-            
+        //navigation from this collection view to transition to the tableVC
             navigationController?.pushViewController(tableVC, animated: true)
+            
         }
     }
     }
 
 extension ViewControllerTwo: UICollectionViewDataSource {
+   /**clarifies number of item to presnet in the collection view as an integer and returning "schoolDepartment.count" returns th exact number of items in the array**/
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return schoolDepartments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
+        //calls the reusable cell identified as "MyCollectionView" and deques that from the top to the bottom which prevents loading individual cells for each line of data displayed.
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-        
-        // 1. Get the department for this specific index
-        let department = schoolDepartments[indexPath.item]
-        
-        // 2. Use the departmentIcon string to find the image in Assets
-        // We provide a fallback image (systemName) just in case the asset name is misspelled
-        let iconImage = UIImage(named: department.departmentIcon) ?? UIImage(systemName: "questionmark.circle")
-        
-        // 3. Configure the cell (Assuming your configure method takes an image, name, and role/desc)
-        cell.configure(with: iconImage!)
-        
+
         return cell
     }
 }
 
 extension ViewControllerTwo: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            
-        let padding: CGFloat = 40 // (inset left and right by 15 + space between cells 10)
+           
+        //customization for display of cells now
+        
+        // (inset left and right by 15 + space between cells 10)
+        let padding: CGFloat = 40
+        //frame for the specific phone - padding
         let collectionViewSize = collectionView.frame.size.width - padding
         
+        //sets the width as the collection view size /2 for the remainders
         let width = collectionViewSize / 2
-            
-        // For a square look, use width. For a card look, use width * 1.2
+        
+        //returns "core graphics size" as a square
         return CGSize(width: width, height: width)
         }
     }

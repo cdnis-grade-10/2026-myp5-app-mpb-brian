@@ -16,9 +16,9 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
             super.awakeFromNib()
             
-            // Let's keep the profile image perfectly circular!
-            // Make sure your UIImageView in the Storyboard is a perfect square (e.g., 60x60)
-            iconImageView.layer.cornerRadius = iconImageView.frame.size.height / 2
-            iconImageView.clipsToBounds = true
+    //rounding for icon to the table view for better UI
+        iconImageView.layer.cornerRadius = iconImageView.frame.size.height / 2
+    //cuts off bounding areas to the image
+        iconImageView.clipsToBounds = true
         }
 }
