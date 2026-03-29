@@ -11,14 +11,15 @@ import Foundation
 
 //struct for each department
 //Teacher is a struct, thus this struct holds a sub-struct
-struct Department{
+//Codable allows Encodable and Decodable for the data type to match any to conform to the constrains
+struct Department: Codable{
     let departmentIcon: String
     let departmentName: String
     let departmentTeacher: [Teacher]
 }
 
 //struct for teachers
-struct Teacher {
+struct Teacher: Codable {
     var teacherName: String
     var teacherContact: String
     var teacherRole: String

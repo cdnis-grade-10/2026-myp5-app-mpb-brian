@@ -294,6 +294,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Done"/>
                                 <connections>
+                                    <action selector="doneButtonTapped:" destination="mbf-1v-xGV" eventType="touchUpInside" id="mmk-o3-jfK"/>
                                     <action selector="editButton:" destination="4QD-Sg-fJG" eventType="touchUpInside" id="vqR-lY-lzC"/>
                                     <segue destination="8wu-A3-77x" kind="unwind" identifier="savesEdits" unwindAction="unwindToProfileWithSegue:" id="eTg-0A-zJb"/>
                                 </connections>
