@@ -96,6 +96,7 @@ class IndividualTeacherViewController: UIViewController {
     
     //another action that uses the data re-entered in the 'edit teacher VC' and unwind back here to update through the segue
     //segue.source as? specifically identifies only the 'edit teacher VC as the source that gets unwind from the segue'
+    //catches data FROM the next VC
     @IBAction func unwindToProfile (segue: UIStoryboardSegue) {
         if let editVC = segue.source as? EditTeacherViewController,
            let updatedTeacher = editVC.teacherToEdit{

@@ -50,7 +50,6 @@ class EditTeacherViewController: UIViewController {
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         
-        
         //identifies when the segue with the 'savesEdits' identifier is triggered (Done) then updates the variables as assigned text values
         //?? indicates they may be empty thus expecting nothing to be a possibility
         if segue.identifier == "savesEdits"{
