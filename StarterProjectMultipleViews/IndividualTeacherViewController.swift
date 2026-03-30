@@ -132,8 +132,7 @@ class IndividualTeacherViewController: UIViewController {
             interestLabel.text = selectedTeacher?.teacherInterest
             skillsLabel.text = selectedTeacher?.teacherSkills
             experiencesLabel.text = selectedTeacher?.teacherExperiences
-            storyLabel.text = selectedTeacher?.teacherStory
-            
+        
             //defaults for place holder
             teacherProfile.image = UIImage(named: "profileImage")
             teacherBackground.image = UIImage(named: "backgroundImage")

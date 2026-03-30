@@ -45,6 +45,9 @@ class ViewControllerTwo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //adds a title to the VC
+        self.title = "Departments"
+        
         //defines layout of the collection view
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical  // Allows vertical scroll
