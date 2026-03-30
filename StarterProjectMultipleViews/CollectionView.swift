@@ -322,7 +322,7 @@ extension ViewControllerTwo: UICollectionViewDataSource {
         
         //calls the reusable cell identified as "MyCollectionView" and deques that from the top to the bottom which prevents loading individual cells for each line of data displayed.
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-      
+        
         //indexPath.item identifies the exact cell that was clicked and carries that as the "currentDepartment" carries the selected department
         let currentDepartment = schoolDepartments[indexPath.item]
         

@@ -8,7 +8,7 @@
 import UIKit
 
 class IndividualTeacherViewController: UIViewController {
-
+    
     @IBOutlet weak var teacherBackground: UIImageView!
     @IBOutlet weak var teacherProfile: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -52,9 +52,9 @@ class IndividualTeacherViewController: UIViewController {
             //defines second item of the field as password
             let passwordField = fields[1]
             
-            //can idnetify the password as selected teacher went through an indexPath in previous VC to know its order in the array
-            emailField.text = self.selectedTeacher?.teacherContact
-            passwordField.text = self.selectedTeacher?.teacherPassword
+            //            //can idnetify the password as selected teacher went through an indexPath in previous VC to know its order in the array
+            //            emailField.text = self.selectedTeacher?.teacherContact
+            //            passwordField.text = self.selectedTeacher?.teacherPassword
             
             //calls the fields as a .text and nils to return if the text is empty
             guard let emailFieldText = emailField.text, !emailFieldText.isEmpty,
@@ -83,16 +83,16 @@ class IndividualTeacherViewController: UIViewController {
     
     //prepares for the next VC to catch the data when the segue is triggered
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
+        
         //identifier of the segue to ensure it is going to the correct VC
         if segue.identifier == "toEditProfile" {
             
             //if the destination of the segue is correct,pass the data of the selected teacher from here to the next VC as "teacherToEdit"
             if let editTeacherVC = segue.destination as? EditTeacherViewController {
                 editTeacherVC.teacherToEdit = self.selectedTeacher
-                }
             }
         }
+    }
     
     //another action that uses the data re-entered in the 'edit teacher VC' and unwind back here to update through the segue
     //segue.source as? specifically identifies only the 'edit teacher VC as the source that gets unwind from the segue'
@@ -101,7 +101,7 @@ class IndividualTeacherViewController: UIViewController {
         if let editVC = segue.source as? EditTeacherViewController,
            let updatedTeacher = editVC.teacherToEdit{
             self.selectedTeacher = updatedTeacher
-           
+            
             nameLabel.text = updatedTeacher.teacherName
             roleLabel.text = updatedTeacher.teacherRole
             contactLabel.text = updatedTeacher.teacherContact
@@ -132,7 +132,7 @@ class IndividualTeacherViewController: UIViewController {
             interestLabel.text = selectedTeacher?.teacherInterest
             skillsLabel.text = selectedTeacher?.teacherSkills
             experiencesLabel.text = selectedTeacher?.teacherExperiences
-        
+            storyLabel.text = selectedTeacher?.teacherStory
             //defaults for place holder
             teacherProfile.image = UIImage(named: "profileImage")
             teacherBackground.image = UIImage(named: "backgroundImage")
@@ -143,18 +143,18 @@ class IndividualTeacherViewController: UIViewController {
         }
         
     }
-
-        // Do any additional setup after loading the view.
-    }
     
+    // Do any additional setup after loading the view.
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
